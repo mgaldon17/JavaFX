@@ -1,5 +1,6 @@
 package HelloWrold;
 import java.awt.GridLayout;
+import java.util.Hashtable;
 
 import javafx.geometry.Insets; // Has to be this one !!!
 
@@ -70,12 +71,13 @@ public class HelloWorld extends Application {
         grid.add(userName, 0, 1);
 
         TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
-
+        
+        grid.add(userTextField, 1, 1); // Este !!!
+        
         Label pw = new Label("Password:");
         grid.add(pw, 0, 2);
 
-        PasswordField pwBox = new PasswordField();
+        PasswordField pwBox = new PasswordField(); // Este !!!
         grid.add(pwBox, 1, 2);
         
         //Create Button Sign in 
@@ -89,14 +91,33 @@ public class HelloWorld extends Application {
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
         
+        
+        
         //Button On Action 
         
         @SuppressWarnings("rawtypes")
 		EventHandler event = new EventHandler <ActionEvent>() {
+        	
+        	
 
 			@Override
-			public void handle(ActionEvent arg0) {
+			public void handle(ActionEvent event ) {
 				
+				dict dt = new dict();
+				
+				Hashtable<String, String> hs = new Hashtable<String, String>();
+				
+				
+				if(pwBox.equals(dt.h) && userTextField.equals(dt.h)) {
+					
+					System.out.println("Pass OK");
+					
+				}else{
+					
+					System.out.println("Pass NOT OK");
+				}
+				
+				//Button pressed
 				 actiontarget.setFill(Color.FIREBRICK);
 	             actiontarget.setText("Sign in button pressed");
 	             
